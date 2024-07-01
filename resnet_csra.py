@@ -149,9 +149,6 @@ class ResNet_CSRA(ResNet):
 
     def forward_train(self, x, target): #for training and validation set
         x = self.backbone(x) #get features from input tensor
-
-
-
         logit = self.classifier(x) #gets logits from classifier
 
         loss = self.loss_func(logit, target, reduction="mean") #for binary cross entropy loss
@@ -160,9 +157,6 @@ class ResNet_CSRA(ResNet):
 
     def forward_test(self, x):
         x = self.backbone(x)
-
-
-
         logit = self.classifier(x) #only gets the logit (for testing set)
         return logit
 
@@ -196,78 +190,3 @@ class ResNet_CSRA(ResNet):
 
         # remove the original 1000-class fc
         self.fc = nn.Sequential() 
-
-
-
-#save for reference
-
-
-
-    #     def forward_train(self, x1, x2, x3, target): #for training and validation set
-    #     x1 = self.backbone(x1) #get features from input tensor
-    #     x2 = self.backbone(x2)
-    #     x3 = self.backbone(x3)
-
-    #     #In this section, create 2 inputs, x1 and x2 to the backbone
-
-    #     #X2 = self.backbone(x2)
-    #     #X1 = self.backbone(x1)
-
-    #     #x= stack x1 and x2
-
-    #     x = torch.cat((x1, x2, x3), dim=1)
-
-
-
-    #     logit = self.classifier(x) #gets logits from classifier
-
-    #     loss = self.loss_func(logit, target, reduction="mean") #for binary cross entropy loss
-    #     #loss = self.loss_func(target, logit) #added for macro f1
-    #     return logit, loss
-
-    # def forward_test(self, x1, x2, x3):
-    #     x1 = self.backbone(x1)
-    #     x2 = self.backbone(x2)
-    #     x3 = self.backbone(x3)
-
-    #     x = torch.cat((x1, x2, x3), dim=1)
-
-
-    #     x = self.classifier(x) #only gets the logit (for testing set)
-    #     return x
-
-    # def forward(self, x1, x2, x3, target=None): #modify this to accept more than one img
-    #     if target is not None:
-    #         return self.forward_train(x1, x2, x3, target)
-    #     else:
-    #         return self.forward_test(x1, x2, x3)
-
-
-
-
-    #     def forward_train(self, x, target): #for training and validation set
-    #     x = self.backbone(x) #get features from input tensor
-
-    #     #In this section, create 2 inputs, x1 and x2 to the backbone
-
-    #     #X2 = self.backbone(x2)
-    #     #X1 = self.backbone(x1)
-
-    #     #x= stack x1 and x2
-
-
-    #     logit = self.classifier(x) #gets logits from classifier
-    #     loss = self.loss_func(logit, target, reduction="mean") #for binary cross entropy loss
-    #     #loss = self.loss_func(target, logit) #added for macro f1
-    #     return logit, loss
-
-    # def forward_test(self, x):
-    #     x = self.backbone(x)
-    #     x = self.classifier(x) #only gets the logit (for testing set)
-    #     return x
-
-    # def forward(self, x, target=None): #modify this to accept more than one img
-    #     if target is not None:
-    #         return self.forward_train(x, target)
-    #     else:
-    #         return self.forward_test(x)
