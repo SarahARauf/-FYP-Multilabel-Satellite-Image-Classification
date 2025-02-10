@@ -1,10 +1,12 @@
-# Satellite Image Classification Pipeline
+# Multilabel Multiband Satellite Image Classification Pipeline
 
 ## Overview
-This repository contains a deep learning pipeline for classifying satellite images. The pipeline leverages modern deep learning frameworks and pre-trained models to achieve high performance on satellite imagery tasks.
+This repository contains a deep learning pipeline for classifying satellite images. This pipeline is based of the repository below, which includes the original pipeline from the paper "Residual Attention: A Simple but Effective Method for Multi-Label Recognition":https://github.com/Kevinz-code/CSRA
+
+The pipeline leverages the CSRA (class-specific residual attention) module along with ResNet and ViT (vision transformer) backbones for the multilabel and multiband classification of satellite imagery.
 
 ## Features
-- **Data Preprocessing**: Efficient handling of satellite image datasets, including resizing, normalization, and augmentation.
+- **Data Preprocessing**: The dataset used for this research is the Multiband BigEarthNet43 dataset. Due to the large size of our dataset, we are unable to upload it onto GitHub. Under 'usage' are the steps to preprocess the data yourself.
 - **Modeling**: Integration of state-of-the-art deep learning models for image classification.
 - **Evaluation**: Comprehensive evaluation metrics to assess model performance.
 - **Visualization**: Tools for visualizing predictions and understanding model outputs.
@@ -50,7 +52,12 @@ This repository contains a deep learning pipeline for classifying satellite imag
 ### Usage
 
 #### Data Preprocessing
-Run the preprocessing script to prepare your dataset:
+  1. Download BigEarthNet S1 from this website and unzip: https://bigearth.net/#downloads
+  2. Run ProcessLabels.py to create the csv file containing image path and labels for each image.
+  3. Run Downsample.py to downsample the dataset to a fifth of the original size.
+  4. Run Onehotencoded.py to split the dataset into train/val/test, apply one-hot encoding and turn into a .json file.
+  5. Run ProcessImage.py to process the multiband satellite images into different 3 channel combinations.
+
 ```bash
 python scripts/preprocess.py --input-dir data/raw --output-dir data/processed
 ```
@@ -70,14 +77,6 @@ python scripts/evaluate.py --model-path models/checkpoint.pth --data-dir data/pr
 ## Visualization
 To visualize predictions, use the built-in tools provided in `notebooks/visualize_predictions.ipynb`.
 
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request.
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - [PyTorch](https://pytorch.org/)
