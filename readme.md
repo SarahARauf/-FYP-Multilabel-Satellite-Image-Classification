@@ -1,7 +1,5 @@
 # Multilabel Multiband Satellite Image Classification Pipeline
 
-
-
 ## Overview
 This repository contains the deep learning pipeline for classifying satellite images used in the APSIPA ASC 2024 paper [Multi-band Satellite Image Analysis for Multi-label Classification](https://ieeexplore.ieee.org/document/10848859). This pipeline is based of the repository below, which includes the original pipeline from the paper [Residual Attention: A Simple but Effective Method for Multi-Label Recognition](https://github.com/Kevinz-code/CSRA)
 
@@ -27,6 +25,11 @@ The pipeline leverages the CSRA (class-specific residual attention) module along
 ├── requirements.txt  # Python dependencies
 ├── README.md         # Project documentation
 ```
+## To-Do: Code Cleanup Tasks
+### General Cleanup
+- [ ] Remove unused imports and libraries.
+- [ ] Add comments where necessary for better understanding.
+- [ ] Remove all irrelevant comments.
 
 ## Getting Started
 
