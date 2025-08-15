@@ -16,20 +16,20 @@ The pipeline leverages the CSRA (class-specific residual attention) module along
 ├── data
 │   ├── raw          # Raw satellite images
 │   ├── processed    # Preprocessed images ready for modeling
-├── notebooks         # Jupyter notebooks for exploratory analysis
-├── models            # Saved models and checkpoints
+│   ├── splits       # Train/validation/test splits information
+├── notebooks         # Jupyter notebooks for exploratory analysis, modeling, and results
+├── models            # Saved models and checkpoints (e.g., .pth, .h5)
 ├── scripts
-│   ├── preprocess.py # Script for data preprocessing
-│   ├── train.py      # Training script
-│   ├── evaluate.py   # Evaluation script
+│   ├── preprocess.py # Script for data preprocessing (normalization, augmentation, etc.)
+│   ├── split_data.py # Script for splitting data into train/val/test sets
+│   ├── train.py      # Model training script
+│   ├── evaluate.py   # Model evaluation script (metrics, confusion matrix, etc.)
+│   ├── inference.py  # Script to run inference on new images
+│   ├── utils.py      # Utility functions used across scripts
 ├── requirements.txt  # Python dependencies
 ├── README.md         # Project documentation
 ```
-## To-Do: Code Cleanup Tasks
-### General Cleanup
-- [ ] Remove unused imports and libraries.
-- [ ] Add comments where necessary for better understanding.
-- [ ] Remove all irrelevant comments.
+
 
 ## Getting Started
 
