@@ -13,21 +13,8 @@ The pipeline leverages the CSRA (class-specific residual attention) module along
 
 ## Pipeline Structure
 ```plaintext
-├── data
-│   ├── raw          # Raw satellite images
-│   ├── processed    # Preprocessed images ready for modeling
-│   ├── splits       # Train/validation/test splits information
-├── notebooks         # Jupyter notebooks for exploratory analysis, modeling, and results
-├── models            # Saved models and checkpoints (e.g., .pth, .h5)
-├── scripts
-│   ├── preprocess.py # Script for data preprocessing (normalization, augmentation, etc.)
-│   ├── split_data.py # Script for splitting data into train/val/test sets
-│   ├── train.py      # Model training script
-│   ├── evaluate.py   # Model evaluation script (metrics, confusion matrix, etc.)
-│   ├── inference.py  # Script to run inference on new images
-│   ├── utils.py      # Utility functions used across scripts
+├── Pipeline
 ├── requirements.txt  # Python dependencies
-├── README.md         # Project documentation
 ```
 
 
